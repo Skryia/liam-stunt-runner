@@ -63,9 +63,10 @@
     if (conn && (conn.saveData || /2g/.test(conn.effectiveType || ""))) return;
     var mobile = window.matchMedia("(max-width: 700px)").matches;
     var srcs = [];
-    if (mobile && h.videoMobileMp4) {
+    if (mobile && (h.videoMobileMp4 || h.videoMobileWebm)) {
       // Phones get the dedicated portrait clip only.
-      srcs.push(["video/mp4", h.videoMobileMp4]);
+      if (h.videoMobileWebm) srcs.push(["video/webm", h.videoMobileWebm]);
+      if (h.videoMobileMp4) srcs.push(["video/mp4", h.videoMobileMp4]);
     } else {
       if (h.videoWebm) srcs.push(["video/webm", h.videoWebm]);
       srcs.push(["video/mp4", h.videoMp4]);
