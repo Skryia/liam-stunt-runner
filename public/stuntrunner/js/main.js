@@ -63,8 +63,13 @@
     if (conn && (conn.saveData || /2g/.test(conn.effectiveType || ""))) return;
     var mobile = window.matchMedia("(max-width: 700px)").matches;
     var srcs = [];
-    if (h.videoWebm) srcs.push(["video/webm", h.videoWebm]);
-    srcs.push(["video/mp4", mobile && h.videoMobileMp4 ? h.videoMobileMp4 : h.videoMp4]);
+    if (mobile && h.videoMobileMp4) {
+      // Phones get the dedicated portrait clip only.
+      srcs.push(["video/mp4", h.videoMobileMp4]);
+    } else {
+      if (h.videoWebm) srcs.push(["video/webm", h.videoWebm]);
+      srcs.push(["video/mp4", h.videoMp4]);
+    }
     srcs.forEach(function (s) { if (!s[1]) return; var el = document.createElement("source"); el.type = s[0]; el.src = s[1]; video.appendChild(el); });
     video.preload = "metadata";
     video.addEventListener("playing", function () { video.classList.add("playing"); media.classList.add("has-video"); btn.hidden = false; setBtn(false); });
