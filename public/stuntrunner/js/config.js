@@ -7,7 +7,7 @@ window.SITE_CONFIG = {
 
   hero: {
     // Owner-supplied local video, e.g. "assets/video/hero.mp4". Leave "" to use the poster only.
-    videoMp4: "",
+    videoMp4: "/__l5e/assets-v1/dec104a5-a6f8-44af-b533-591533c56c63/liam-hero-h264.mp4",
     videoWebm: "",
     // Smaller version for phones (optional), e.g. "assets/video/hero-mobile.mp4"
     videoMobileMp4: "",
