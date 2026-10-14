@@ -7,13 +7,17 @@ window.SITE_CONFIG = {
 
   hero: {
     // Owner-supplied local video, e.g. "assets/video/hero.mp4". Leave "" to use the poster only.
-    videoMp4: "",
-    videoWebm: "",
+    videoMp4: "/__l5e/assets-v1/dec104a5-a6f8-44af-b533-591533c56c63/liam-hero-h264.mp4",
+    videoWebm: "/__l5e/assets-v1/28b87336-9617-4d2c-a293-38de193001e5/liam-hero.webm",
     // Smaller version for phones (optional), e.g. "assets/video/hero-mobile.mp4"
     videoMobileMp4: "",
     poster: "assets/hero-poster-placeholder.jpg",
-    // Set to false once a genuine poster/video of Liam has been supplied.
-    posterIsPlaceholder: true,
+    // The fire artwork is intentionally retained over the moving footage.
+    posterIsPlaceholder: false,
+    // 0 = video only, 1 = fire image only. Used once video is playing.
+    overlayOpacity: 0.55,
+    // Reference only: background playback needs a downloaded MP4, not a TikTok page URL.
+    sourcePage: "https://www.tiktok.com/@thestuntrunner/video/7371185942926724385",
     // CSS object-position focal point for cropping, e.g. "50% 30%"
     focalPoint: "50% 50%",
   },
