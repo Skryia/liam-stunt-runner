@@ -50,8 +50,11 @@
   (function hero() {
     var h = CFG.hero || {};
     var video = $("#hero-video"), poster = $("#hero-poster"), btn = $("#video-toggle");
+    var media = $(".hero-media");
     var focal = h.focalPoint || "50% 50%";
-    $(".hero-media").style.setProperty("--focal", focal);
+    media.style.setProperty("--focal", focal);
+    var opacity = Number(h.overlayOpacity);
+    media.style.setProperty("--hero-overlay-opacity", String(Number.isFinite(opacity) ? Math.max(0, Math.min(1, opacity)) : 0.55));
     if (h.poster) { poster.src = h.poster; video.poster = h.poster; }
     var hasVideo = !!(h.videoMp4 || h.videoWebm);
     $("#hero-slot-label").hidden = !h.posterIsPlaceholder;
@@ -64,15 +67,23 @@
     srcs.push(["video/mp4", mobile && h.videoMobileMp4 ? h.videoMobileMp4 : h.videoMp4]);
     srcs.forEach(function (s) { if (!s[1]) return; var el = document.createElement("source"); el.type = s[0]; el.src = s[1]; video.appendChild(el); });
     video.preload = "metadata";
-    video.addEventListener("playing", function () { video.classList.add("playing"); btn.hidden = false; });
-    video.addEventListener("error", function () { video.remove(); btn.hidden = true; }, true);
-    var p = video.play(); if (p && p.catch) p.catch(function () { /* autoplay blocked: poster stays */ btn.hidden = false; setBtn(true); });
+    video.addEventListener("playing", function () { video.classList.add("playing"); media.classList.add("has-video"); btn.hidden = false; setBtn(false); });
+    video.addEventListener("pause", function () { setBtn(true); });
+    video.addEventListener("error", function () { media.classList.remove("has-video"); video.classList.remove("playing"); btn.hidden = true; });
+    function playVideo() {
+      var p = video.play();
+      if (p && p.catch) p.catch(function () {
+        // Keep the opaque artwork until actual playback succeeds.
+        if (!video.error) { btn.hidden = false; setBtn(true); }
+      });
+    }
+    playVideo();
     function setBtn(paused) {
       btn.setAttribute("aria-pressed", String(paused));
       $(".vt-label", btn).textContent = paused ? "Play video" : "Pause video";
     }
     btn.addEventListener("click", function () {
-      if (video.paused) { video.play(); setBtn(false); } else { video.pause(); setBtn(true); }
+      if (video.paused) { playVideo(); } else { video.pause(); }
     });
   })();
 
