@@ -17,7 +17,7 @@ window.SITE_CONFIG = {
     // The fire artwork is intentionally retained over the moving footage.
     posterIsPlaceholder: false,
     // 0 = video only, 1 = fire image only. Used once video is playing.
-    overlayOpacity: 0.55,
+    overlayOpacity: 0.75,
     // Reference only: background playback needs a downloaded MP4, not a TikTok page URL.
     // Desktop clip below; the phone clip is https://www.tiktok.com/@thestuntrunner/video/7371185942926724385
     sourcePage: "https://www.tiktok.com/@thestuntrunner/video/7369744905289223457",
