@@ -80,8 +80,8 @@ a:hover{color:#ffd166}
 .hero{position:relative;min-height:calc(100svh - var(--header-h));display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
 .hero-media{position:absolute;inset:0;z-index:-1}
 .hero-video,.hero-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--focal,50% 50%)}
-.hero-video{opacity:0;transition:opacity .8s;object-fit:contain;object-position:85% 50%}
-@media (max-width:700px){.hero-video{object-position:50% 50%}}
+.hero-video{opacity:0;transition:opacity .8s;object-fit:cover}
+@media (max-width:700px){.hero-video{object-fit:contain;object-position:50% 50%}}
 .hero-video.playing{opacity:1}
 .hero-poster{opacity:1;transition:opacity .8s;pointer-events:none}
 .hero-media.has-video .hero-poster{opacity:var(--hero-overlay-opacity,.55)}
