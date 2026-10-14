@@ -16,7 +16,7 @@ assets/              ← put images/videos here
 1. Save files e.g. `assets/video/hero.mp4` (H.264, ~1080p, 10–20s, < 8 MB), optional `hero.webm` and a smaller `hero-mobile.mp4`, plus `assets/hero-poster.jpg`.
 2. In `js/config.js` → `hero`, set `videoMp4`, `videoWebm` and `videoMobileMp4`. Keep `poster` pointing to the current fire artwork and `posterIsPlaceholder: false`.
 3. Adjust `focalPoint` (e.g. `"50% 30%"`) to control cropping.
-The current fire artwork floats over the video at 55% opacity (`overlayOpacity: 0.55`). Increase this value for more fire, or decrease it for clearer footage. The artwork stays fully opaque before playback, if playback fails, and for reduced-motion or data-saving visitors. Pausing keeps the blended still frame.
+The current fire artwork floats over the video at 75% opacity (`overlayOpacity: 0.75`). Increase this value for more fire, or decrease it for clearer footage. The artwork stays fully opaque before playback, if playback fails, and for reduced-motion or data-saving visitors. Pausing keeps the blended still frame.
 Two TikTok clips are connected, silent and looping, in MP4 and WebM formats. Desktop uses a landscape clip stretched edge-to-edge; phones use a portrait clip framed without cropping. Their sources are recorded in `hero.sourcePage`.
 For GitHub Pages, download the videos from the `url` fields in `assets/video/*.asset.json` using the Lovable preview origin, save as `assets/video/hero.mp4`, `hero.webm` and `hero-mobile.mp4`, and update `videoMp4`, `videoWebm` and `videoMobileMp4` to those relative paths. The `/__l5e/` URLs only work on Lovable. A TikTok page URL cannot be used as an HTML video source. Do not use expiring TikTok media URLs in the configuration.
 
