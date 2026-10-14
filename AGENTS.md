@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- The Stunt Runner site is plain static HTML/CSS/JS in public/stuntrunner (GitHub Pages deliverable); / only redirects there. Why: the brief requires a static, server-free site.
