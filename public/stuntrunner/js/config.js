@@ -18,7 +18,8 @@ window.SITE_CONFIG = {
     // 0 = video only, 1 = fire image only. Used once video is playing.
     overlayOpacity: 0.55,
     // Reference only: background playback needs a downloaded MP4, not a TikTok page URL.
-    sourcePage: "https://www.tiktok.com/@thestuntrunner/video/7371185942926724385",
+    // Desktop clip below; the phone clip is https://www.tiktok.com/@thestuntrunner/video/7371185942926724385
+    sourcePage: "https://www.tiktok.com/@thestuntrunner/video/7369744905289223457",
     // CSS object-position focal point for cropping, e.g. "50% 30%"
     focalPoint: "50% 50%",
   },
