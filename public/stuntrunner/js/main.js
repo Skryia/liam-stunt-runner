@@ -54,7 +54,7 @@
     $(".hero-media").style.setProperty("--focal", focal);
     if (h.poster) { poster.src = h.poster; video.poster = h.poster; }
     var hasVideo = !!(h.videoMp4 || h.videoWebm);
-    $("#hero-slot-label").hidden = !(h.posterIsPlaceholder || !hasVideo && h.posterIsPlaceholder);
+    $("#hero-slot-label").hidden = !h.posterIsPlaceholder;
     if (!hasVideo || reduceMotion) return;
     var conn = navigator.connection;
     if (conn && (conn.saveData || /2g/.test(conn.effectiveType || ""))) return;
