@@ -9,5 +9,5 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- The Stunt Runner site is plain static HTML/CSS/JS in public/stuntrunner (GitHub Pages deliverable); / only redirects there. Why: the brief requires a static, server-free site.
+- The Stunt Runner site is plain static HTML/CSS/JS in public/stuntrunner (GitHub Pages deliverable); / redirects to /stuntrunner, whose route serves index.html with a <base> tag (Lovable hosting strips index.html, so the page needs a route). Why: the brief requires a static, server-free site.
 - Hero footage uses a downloaded browser-compatible MP4 below an independently faded poster; reveal the footage only after playback succeeds. Why: TikTok page embeds cannot provide reliable background playback, and an opaque poster preserves the fallback.
