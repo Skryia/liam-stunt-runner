@@ -5,7 +5,10 @@ import html from "../../public/stuntrunner/index.html?raw";
 // The <base> tag keeps the page's relative css/js/assets paths pointing at /stuntrunner/.
 const page = html.includes("<base ")
   ? html
-  : html.replace(/<head([^>]*)>/i, '<head$1>\n  <base href="/stuntrunner/">');
+  : html
+      .replace(/<head([^>]*)>/i, '<head$1>\n  <base href="/stuntrunner/">')
+      // Keep in-page section links on this same URL so they scroll instead of reloading.
+      .replace(/href="#/g, 'href="/stuntrunner#');
 
 export const Route = createFileRoute("/stuntrunner")({
   server: {
