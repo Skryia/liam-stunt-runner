@@ -40,9 +40,9 @@ window.SITE_CONFIG = {
   // Three YouTube videos linked from Liam's Instagram profile.
   // Paste the full YouTube URL (watch, youtu.be or shorts). Leave "" until confirmed.
   youtube: [
-    { title: "Video slot 1", url: "" },
-    { title: "Video slot 2", url: "" },
-    { title: "Video slot 3", url: "" },
+    { title: "Semi-final BGT 2009", url: "https://www.youtube.com/watch?v=J0QR8LoyWeg" },
+    { title: "The Final Hurdle", url: "https://www.youtube.com/watch?v=2AaqLlC1aF4" },
+    { title: "Sports Dopers Secrets", url: "https://www.youtube.com/watch?v=wJRPxmTuxoI" },
   ],
 
   contact: {
