@@ -27,8 +27,8 @@ window.SITE_CONFIG = {
 
   // Genuine photos of Liam. Leave src "" to show a clearly labelled placeholder.
   about: {
-    photo: { src: "", alt: "Liam Collins, The Stunt Runner" },
-    vanPhoto: { src: "", alt: "Liam's van on the road" },
+    photo: { src: "assets/liam.jpg", alt: "Liam Collins, The Stunt Runner" },
+    vanPhoto: { src: "assets/van-life.jpg", alt: "Liam's van on the road" },
   },
 
   socials: [
