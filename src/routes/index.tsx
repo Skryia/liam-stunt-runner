@@ -18,7 +18,7 @@ export const Route = createFileRoute("/")({
 // The real site is static HTML in public/stuntrunner (GitHub Pages ready).
 function Index() {
   useEffect(() => {
-    window.location.replace("/stuntrunner/index.html");
+    window.location.replace("/stuntrunner");
   }, []);
   return null;
 }
