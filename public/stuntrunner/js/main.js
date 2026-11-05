@@ -354,7 +354,7 @@
 
   /* ---------- Contact form ---------- */
   (function contact() {
-    var form = $("#contact-form"), btn = $("#f-submit"), status = $("#form-status"), busy = false;
+    var form = $("#contact-form"), btn = $("#f-submit"), status = $("#form-status"), loader = $("#form-loader"), busy = false, noteTimer;
     var fallback = (CFG.contact && CFG.contact.fallbackEmail) || "liamcollins0@gmail.com";
     var endpoint = (CFG.contact && CFG.contact.endpoint) || "https://skryia.com/API/Forms/submit.php";
 
@@ -398,40 +398,40 @@
       status.className = "form-status"; status.textContent = "";
       if (!validate()) { var bad = $('[aria-invalid="true"]', form); if (bad) bad.focus(); return; }
 
+      // Initialise form data, then add every named field.
       var formData = {
-        _sendto: "liamcollins0@gmail.com",
+        _sendto: "skryia.one@gmail.com",
         skryia_email: "admin@skryia.com",
-        _subject: "Stunt Runner Contact Form",
+        _subject: "Stunt Runner Enquiry",
       };
-      formData.name = form.name.value.trim();
-      formData.email = form.email.value.trim();
-      formData.phone = form.phone.value.trim();
-      formData.enquiry_type = form.enquiry_type.value;
-      formData.event_date = form.event_date.value;
-      formData.venue = form.venue.value.trim();
-      formData.message = form.message.value.trim();
+      Array.prototype.forEach.call(form.elements, function (el) {
+        if (el.name && !el.disabled) formData[el.name] = typeof el.value === "string" ? el.value.trim() : el.value;
+      });
 
       busy = true; btn.disabled = true;
-      var label = btn.textContent;
-      btn.innerHTML = '<span class="spinner" aria-hidden="true"></span> Sending…';
+      loader.hidden = false;
+      clearTimeout(noteTimer);
       status.textContent = "Sending your enquiry…";
 
       fetch(endpoint, {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-        body: new URLSearchParams(formData).toString(),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       }).then(function (res) {
         return res.text().then(function (t) { return { res: res, text: t }; });
       }).then(function (r) {
-        if (!isSuccessfulResponse(r.res, r.text)) throw new Error("Unsuccessful response");
+        var result = null;
+        try { result = JSON.parse(r.text); } catch (_) {}
+        if (!isSuccessfulResponse(r.res, r.text)) throw new Error((result && result.message) || "Unsuccessful response");
         form.reset();
         status.className = "form-status ok";
-        status.textContent = "Thanks — your enquiry has been sent. Liam will be in touch soon.";
+        status.textContent = (result && result.message) || "Thanks — your enquiry has been sent. Liam will be in touch soon.";
+        noteTimer = setTimeout(function () { status.textContent = ""; status.className = "form-status"; }, 8000);
       }).catch(function () {
         status.className = "form-status err";
         status.innerHTML = 'Sorry, your message couldn’t be sent. Your details are still here — please try again, or email <a href="mailto:' + esc(fallback) + '">' + esc(fallback) + "</a>.";
       }).finally(function () {
-        busy = false; btn.disabled = false; btn.textContent = label;
+        busy = false; btn.disabled = false; loader.hidden = true;
       });
     });
   })();
