@@ -1,6 +1,9 @@
 # The Stunt Runner — static website
 
-Plain HTML/CSS/JS. No build step, no server. Upload the contents of this folder to a GitHub Pages repo (root or `/docs`) — `index.html` is the homepage. Page paths are relative; the preview videos use Lovable-hosted asset URLs (see below for GitHub Pages).
+
+## Publishing on GitHub Pages
+The workflow in `.github/workflows/pages.yml` publishes this folder automatically on every push to `main`. One-time setup: repo **Settings → Pages → Source: GitHub Actions**. Keep each file under 10 MB.
+Plain HTML/CSS/JS. No build step, no server. Upload the contents of this folder to a GitHub Pages repo (root or `/docs`) — `index.html` is the homepage. Page paths are relative; all videos are stored in `assets/video/`.
 
 ```
 index.html
@@ -18,7 +21,6 @@ assets/              ← put images/videos here
 3. Adjust `focalPoint` (e.g. `"50% 30%"`) to control cropping.
 The current fire artwork floats over the video at 75% opacity (`overlayOpacity: 0.75`). Increase this value for more fire, or decrease it for clearer footage. The artwork stays fully opaque before playback, if playback fails, and for reduced-motion or data-saving visitors. Pausing keeps the blended still frame.
 Two TikTok clips are connected, silent and looping, in MP4 and WebM formats. Desktop uses a landscape clip stretched edge-to-edge; phones use a portrait clip framed without cropping. Their sources are recorded in `hero.sourcePage`.
-For GitHub Pages, download the videos from the `url` fields in `assets/video/*.asset.json` using the Lovable preview origin, save as `assets/video/hero.mp4`, `hero.webm` and `hero-mobile.mp4`, and update `videoMp4`, `videoWebm` and `videoMobileMp4` to those relative paths. The `/__l5e/` URLs only work on Lovable. A TikTok page URL cannot be used as an HTML video source. Do not use expiring TikTok media URLs in the configuration.
 
 ## About photos
 `js/config.js` → `about.photo.src` and `about.vanPhoto.src` (e.g. `assets/liam.jpg`).
