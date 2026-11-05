@@ -8,11 +8,11 @@ window.SITE_CONFIG = {
   hero: {
     // Owner-supplied local video, e.g. "assets/video/hero.mp4". Leave "" to use the poster only.
     // Desktop: landscape clip, stretched full-bleed behind the fire artwork.
-    videoMp4: "/__l5e/assets-v1/41daea99-b48f-4bd8-b5da-8330e6f3babb/liam-hero-wide.mp4",
-    videoWebm: "/__l5e/assets-v1/80cf5f12-c0f1-4345-a9f1-1e0f160c790e/liam-hero-wide.webm",
+    videoMp4: "assets/video/liam-hero-wide.mp4",
+    videoWebm: "assets/video/liam-hero-wide.webm",
     // Phones: portrait clip (framed, not stretched).
-    videoMobileMp4: "/__l5e/assets-v1/dec104a5-a6f8-44af-b533-591533c56c63/liam-hero-h264.mp4",
-    videoMobileWebm: "/__l5e/assets-v1/28b87336-9617-4d2c-a293-38de193001e5/liam-hero.webm",
+    videoMobileMp4: "assets/video/liam-hero-h264.mp4",
+    videoMobileWebm: "assets/video/liam-hero.webm",
     poster: "assets/hero-poster-placeholder.jpg",
     // The fire artwork is intentionally retained over the moving footage.
     posterIsPlaceholder: false,
