@@ -1,6 +1,8 @@
-# Pixel Perfect Pixels
+# Liam Stunt Runner
 
-Implement exactly the screenshot and nothing else
+Liam Collins — stunt performer. Static portfolio and booking site.
+
+The site itself lives in [`public/stuntrunner`](public/stuntrunner/README.md): plain HTML/CSS/JS, no build step, no server. It publishes to GitHub Pages at `https://<username>.github.io/Liam-Stunt-Runner/` — so this repository must be named **Liam-Stunt-Runner**.
 
 This project was built with [Lovable](https://lovable.dev).
 

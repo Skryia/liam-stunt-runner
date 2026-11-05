@@ -3,6 +3,7 @@
 
 ## Publishing on GitHub Pages
 The workflow in `.github/workflows/pages.yml` publishes this folder automatically on every push to `main`. One-time setup: repo **Settings → Pages → Source: GitHub Actions**. Keep each file under 10 MB.
+The repository must be named **Liam-Stunt-Runner** — that is what puts the site at `https://<username>.github.io/Liam-Stunt-Runner/`.
 Plain HTML/CSS/JS. No build step, no server. Upload the contents of this folder to a GitHub Pages repo (root or `/docs`) — `index.html` is the homepage. Page paths are relative; all videos are stored in `assets/video/`.
 
 ```
