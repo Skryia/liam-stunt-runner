@@ -47,6 +47,8 @@ window.SITE_CONFIG = {
 
   contact: {
     endpoint: "https://skryia.com/API/Forms/submit.php",
+    // Where enquiries are delivered.
+    recipientEmail: "liamcollins0@gmail.com",
     fallbackEmail: "liamcollins0@gmail.com",
   },
 };
