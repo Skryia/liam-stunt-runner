@@ -357,6 +357,7 @@
     var form = $("#contact-form"), btn = $("#f-submit"), status = $("#form-status"), loader = $("#form-loader"), busy = false, noteTimer;
     var fallback = (CFG.contact && CFG.contact.fallbackEmail) || "liamcollins0@gmail.com";
     var endpoint = (CFG.contact && CFG.contact.endpoint) || "https://skryia.com/API/Forms/submit.php";
+    var recipient = (CFG.contact && CFG.contact.recipientEmail) || fallback;
 
     function setErr(id, msg) {
       var input = $("#f-" + id), err = $("#e-" + id);
@@ -400,7 +401,7 @@
 
       // Initialise form data, then add every named field.
       var formData = {
-        _sendto: "skryia.one@gmail.com",
+        _sendto: recipient,
         skryia_email: "admin@skryia.com",
         _subject: "Stunt Runner Enquiry",
       };
