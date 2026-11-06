@@ -5,11 +5,13 @@ import { describe, expect, it } from "vitest";
 
 const SITE_DIR = path.resolve(process.cwd(), "public/stuntrunner");
 
+type SiteConfig = { contact: { recipientEmail: string; fallbackEmail: string; endpoint: string } };
+
 function siteConfig() {
   // config.js is a browser script: window.SITE_CONFIG = { ... }
   const source = readFileSync(path.join(SITE_DIR, "js/config.js"), "utf8");
   new Function(source).call(window);
-  return (window as unknown as { SITE_CONFIG: { contact: Record<string, string> } }).SITE_CONFIG;
+  return (window as unknown as { SITE_CONFIG: SiteConfig }).SITE_CONFIG;
 }
 
 // Enquiries must land in Liam's inbox, not the form service's old address.
