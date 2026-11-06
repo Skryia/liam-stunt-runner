@@ -401,7 +401,7 @@
 
       // Initialise form data, then add every named field.
       var formData = {
-        _sendto: "skryia.one@gmail.com",
+        _sendto: recipient,
         skryia_email: "admin@skryia.com",
         _subject: "Stunt Runner Enquiry",
       };
